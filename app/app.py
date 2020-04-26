@@ -3,14 +3,12 @@ import csv
 import time
 import datetime
 from io import BytesIO
-
 import pymongo
 from pytz import timezone
 from PIL import Image, ImageDraw, ImageFont
 from flask import (Flask, Response, request, redirect, jsonify,
                    render_template, send_file, send_from_directory)
 
-from .stats import STATS
 from .utils import JSONEncoder, Echo
 
 pr = timezone('America/Puerto_Rico')
@@ -75,9 +73,6 @@ def process_stats(results):
         stats = []
         prev_value = None
 
-        if STATS.get(path):
-            label = STATS[path]['label']
-
         for stat in data[1:-1]:
             if stat['value'] != prev_value:
                 stats.append(stat)
@@ -86,19 +81,17 @@ def process_stats(results):
 
         if not stats:
             stats = [last_stat]
-            formatted_value = "{:,}".format(last_stat['value'])
+            if last_stat['value']:
+                formatted_value = "{:,}".format(last_stat['value'])
 
-            if STATS[path]['percent']:
-                formatted_value = '{}%'.format(formatted_value)
-
-            paths.append({
-                '_id': path,
-                'slug': path.replace('.', '-'),
-                'label': label,
-                'data': data,
-                'graph_data': stats,
-                'last_value': formatted_value
-            })
+                paths.append({
+                    '_id': path,
+                    'slug': path.replace('_', '-'),
+                    'label': label,
+                    'data': data,
+                    'graph_data': stats,
+                    'last_value': formatted_value
+                })
         else:
             stats = sorted(stats, key=lambda k: k['date'])
 
@@ -118,9 +111,6 @@ def process_stats(results):
 
             last_stat = stats[-1]
             formatted_value = "{:,}".format(last_stat['value'])
-
-            if STATS[path]['percent']:
-                formatted_value = '{}%'.format(formatted_value)
 
             paths.append({
                 '_id': path,

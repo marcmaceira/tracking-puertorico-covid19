@@ -3,18 +3,18 @@
     <div class="card text-center my-2">
       <div class="card-body">
         <h1 class="card-title">
-          <a href="/">Tracking status.pr</a>
+          <a href="/">Tracking Puerto Rico COVID-19 Dashboard</a>
         </h1>
-        <p class="card-text">This tool scrapes <a target="_blank" href="http://status.pr/">status.pr</a> every hour and keeps tracks of changing metrics in order to help visualize and measure progress. Data is also made available in CSV and JSON formats.</p>
-        <a class="header-link" target="_blank" href="https://github.com/jpadilla/tracking-status-pr"><img src="{{ url_for('static', filename='github-logo.png', t=config.version) }}" width="16" height="16" style="margin:-3px -3px 0 0"> Source code on GitHub</a>
-        <a class="header-link" target="_blank" href="https://github.com/SoPR/maria-tech-brigade-effort"><img src="{{ url_for('static', filename='favicon.ico', t=config.version) }}" width="16" height="16" style="margin:-3px -3px 0 0"> Maria Tech Brigade</a>
+        <p class="card-text">This tool scrapes the <a target="_blank" href="https://bioseguridad.maps.arcgis.com/apps/opsdashboard/index.html#/3bfb64c9a91944bc8c41edd8ff27e6df/">Puerto Rico COVID-19 dashboard</a> every hour and keeps tracks of changing metrics in order to help visualize and measure progress. Data is also made available in CSV and JSON formats.</p>
+        <a class="header-link" target="_blank" href="https://github.com/froi/tracking-puertorico-covid19"><img src="{{ url_for('static', filename='github-logo.png', t=config.version) }}" width="16" height="16" style="margin:-3px -3px 0 0"> Source code on GitHub</a>
+        <a class="header-link" target="_blank" href="https://github.com/code4puertorico"><img src="{{ url_for('static', filename='favicon.ico', t=config.version) }}" width="16" height="16" style="margin:-3px -3px 0 0"> Code 4 Puerto Rico</a>
         {% if share %}
         <div class="mt-3">
           <a target="_blank" class="share-link" href="https://www.facebook.com/sharer/sharer.php?u={{ url_for('index', _external=True) }}">
             {% include "static/facebook.svg" %}
           </a>
 
-          <a target="_blank" class="share-link" href="https://twitter.com/intent/tweet?text=Tracking%20status.pr%20metrics%20in%20order%20to%20help%20visualize%20and%20measure%20progress%20in%20%23PuertoRico%20{{ url_for('index', _external=True) }}">
+          <a target="_blank" class="share-link" href="https://twitter.com/intent/tweet?text=Tracking%20Puerto%20Rico%20COVID-19%20metrics%20in%20order%20to%20help%20visualize%20and%20measure%20progress%20in%20%23PuertoRico%20{{ url_for('index', _external=True) }}">
             {% include "static/twitter.svg" %}
           </a>
         </div>

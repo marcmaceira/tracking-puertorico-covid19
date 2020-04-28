@@ -13,7 +13,7 @@ Before running this project locally you need to have MongoDB installed.
 
 ### Project Setup
 
-To install the project's Python dependencies you can user the `requirements.txt` or the project's `Pipfile` using [Pipenv](https://pipenv.pypa.io/en/latest/).
+To install the project's Python dependencies you can use the `requirements.txt` or the project's `Pipfile` using [Pipenv](https://pipenv.pypa.io/en/latest/).
 
 Using Pip:
 
@@ -26,6 +26,10 @@ Using Pipenv
 ```shell
 > pipenv install --three
 ```
+
+#### Windows 10 Setup
+
+To install the project's Python dependencies on Windows 10, you must run `scripts\install_windows.bat`
 
 ### Web
 
